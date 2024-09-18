@@ -16,6 +16,8 @@
 		AAC602342C9ABA330092D338 /* VideoSoundAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC602332C9ABA330092D338 /* VideoSoundAppTests.swift */; };
 		AAC6023E2C9ABA330092D338 /* VideoSoundAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6023D2C9ABA330092D338 /* VideoSoundAppUITests.swift */; };
 		AAC602402C9ABA330092D338 /* VideoSoundAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6023F2C9ABA330092D338 /* VideoSoundAppUITestsLaunchTests.swift */; };
+		AAC6024D2C9ABE6B0092D338 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6024C2C9ABE6B0092D338 /* CameraViewController.swift */; };
+		AAC6024F2C9ACA320092D338 /* playsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAC6024E2C9ACA310092D338 /* playsound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		AAC602392C9ABA330092D338 /* VideoSoundAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoSoundAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC6023D2C9ABA330092D338 /* VideoSoundAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSoundAppUITests.swift; sourceTree = "<group>"; };
 		AAC6023F2C9ABA330092D338 /* VideoSoundAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSoundAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AAC6024C2C9ABE6B0092D338 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		AAC6024E2C9ACA310092D338 /* playsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = playsound.mp3; path = ../../../playsound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,11 @@
 		AAC6021B2C9ABA2C0092D338 /* VideoSoundApp */ = {
 			isa = PBXGroup;
 			children = (
+				AAC6024E2C9ACA310092D338 /* playsound.mp3 */,
 				AAC6021C2C9ABA2C0092D338 /* AppDelegate.swift */,
 				AAC6021E2C9ABA2C0092D338 /* SceneDelegate.swift */,
 				AAC602202C9ABA2C0092D338 /* ViewController.swift */,
+				AAC6024C2C9ABE6B0092D338 /* CameraViewController.swift */,
 				AAC602222C9ABA2C0092D338 /* Main.storyboard */,
 				AAC602252C9ABA320092D338 /* Assets.xcassets */,
 				AAC602272C9ABA320092D338 /* LaunchScreen.storyboard */,
@@ -233,6 +239,7 @@
 			files = (
 				AAC602262C9ABA320092D338 /* Assets.xcassets in Resources */,
 				AAC602292C9ABA320092D338 /* Base in Resources */,
+				AAC6024F2C9ACA320092D338 /* playsound.mp3 in Resources */,
 				AAC602242C9ABA2C0092D338 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC602212C9ABA2C0092D338 /* ViewController.swift in Sources */,
+				AAC6024D2C9ABE6B0092D338 /* CameraViewController.swift in Sources */,
 				AAC6021D2C9ABA2C0092D338 /* AppDelegate.swift in Sources */,
 				AAC6021F2C9ABA2C0092D338 /* SceneDelegate.swift in Sources */,
 			);
