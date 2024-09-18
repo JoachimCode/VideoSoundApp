@@ -8,12 +8,15 @@ class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession!
     var videoOutput: AVCaptureMovieFileOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var isRecording: Bool = false
     var recordingTimer: Timer?
+    @IBOutlet weak var returnButton: UIButton!
     
     @IBOutlet weak var titleTextField: UITextField!
     
     
+    @IBAction func pressedBackButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToMenu", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCamera()
@@ -63,6 +66,22 @@ class CameraViewController: UIViewController {
             print("Error setting up video input: \(error)")
             return
         }
+        
+        
+        guard let audioDevice = AVCaptureDevice.default(for: .audio) else {
+                    print("No microphone available")
+                    return
+                }
+
+                do {
+                    let audioInput = try AVCaptureDeviceInput(device: audioDevice)
+                    if captureSession.canAddInput(audioInput) {
+                        captureSession.addInput(audioInput)
+                    }
+                } catch {
+                    print("Error setting up audio input: \(error)")
+                    return
+                }
 
         videoOutput = AVCaptureMovieFileOutput()
         if captureSession.canAddOutput(videoOutput) {
@@ -76,6 +95,8 @@ class CameraViewController: UIViewController {
         captureSession.startRunning()
     }
     
+    
+    
     @IBAction func recordButtonPressed(_ sender: UIButton) {
         guard let outputFileURL = getOutputFileURL() else {
                     // If there's no valid filename, print an error or show an alert
@@ -83,15 +104,24 @@ class CameraViewController: UIViewController {
                     showAlert(message: "Please enter a valid filename before recording.")
                     return
                 }
-
-        if videoOutput.isRecording {
-            videoOutput.stopRecording()
-            sender.setTitle("Record", for: .normal)
-        } else {
-            videoOutput.startRecording(to: outputFileURL, recordingDelegate: self)
-            sender.setTitle("Stop", for: .normal)
+        guard !videoOutput.isRecording else {
+            print("Already recording")
+            return
         }
+        videoOutput.startRecording(to: outputFileURL, recordingDelegate: self)
+                    sender.setTitle("Recording...", for: .normal)
+                    
+                    // Start a timer to stop recording after 10 seconds
+                    recordingTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(stopRecording), userInfo: nil, repeats: false)
     }
+    
+    @objc func stopRecording() {
+            if videoOutput.isRecording {
+                videoOutput.stopRecording()
+                recordButton.setTitle("authenticate", for: .normal)
+                recordingTimer?.invalidate()  // Invalidate the timer
+            }
+        }
     
     func getOutputFileURL() -> Optional<URL> {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

@@ -27,25 +27,130 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyp-o3-uvd">
-                                <rect key="frame" x="143" y="447" width="108" height="35"/>
+                                <rect key="frame" x="143" y="446" width="108" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Play sound"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Audio"/>
                                 <connections>
-                                    <action selector="playSoundPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FOW-6a-UgH"/>
+                                    <segue destination="5vQ-JM-s8A" kind="show" identifier="goToAudio" id="MPw-6j-rdP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHs-Dn-F5K">
+                                <rect key="frame" x="143" y="446" width="108" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Audio"/>
+                                <connections>
+                                    <action selector="AudioPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c7l-Yy-UeC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Mz8-Oe-fIm"/>
                     <connections>
+                        <outlet property="AudioButton" destination="BHs-Dn-F5K" id="aIM-2Q-MHJ"/>
                         <outlet property="CameraButton" destination="y8v-Y7-hJb" id="vZO-6I-eoM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+        </scene>
+        <!--Audio View Controller-->
+        <scene sceneID="bQd-CQ-tX6">
+            <objects>
+                <viewController id="5vQ-JM-s8A" customClass="AudioViewController" customModule="VideoSoundApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cRc-3k-VON">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwC-OY-112">
+                                <rect key="frame" x="258" y="688" width="119" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="authenticate" cornerStyle="medium">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="recordButtonPressed:" destination="5vQ-JM-s8A" eventType="touchUpInside" id="PUD-P7-D7h"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-P6-LhS">
+                                <rect key="frame" x="62" y="688" width="188" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsq-ri-ZME">
+                                <rect key="frame" x="104" y="730" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="z3G-ik-1Ke">
+                                <rect key="frame" x="83" y="606" width="227" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Volume: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRR-lA-o41">
+                                <rect key="frame" x="123" y="556" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja3-cw-bbq">
+                                <rect key="frame" x="208" y="556" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdm-If-Q1a">
+                                <rect key="frame" x="62" y="102" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Back">
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressedBackButton:" destination="XuD-3P-jKq" eventType="touchUpInside" id="FzI-ag-yk1"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToMenu" modalPresentationStyle="fullScreen" id="Fdx-GM-5cy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWK-g1-79Y">
+                                <rect key="frame" x="62" y="102" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Back">
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressedBackButton:" destination="XuD-3P-jKq" eventType="touchUpInside" id="Smi-yq-5c9"/>
+                                    <action selector="pressedBackButton:" destination="5vQ-JM-s8A" eventType="touchUpInside" id="qoe-u5-6gX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QZK-1Q-EVa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gvu-rb-si6"/>
+                    <connections>
+                        <outlet property="VolumeLabel" destination="WRR-lA-o41" id="hs4-j2-eaZ"/>
+                        <outlet property="VolumeSlider" destination="z3G-ik-1Ke" id="CoV-qt-21l"/>
+                        <outlet property="recordButton" destination="RwC-OY-112" id="4fm-gW-Ryb"/>
+                        <outlet property="returnButton" destination="xWK-g1-79Y" id="Hxk-Y4-0jx"/>
+                        <outlet property="titleLabel" destination="rsq-ri-ZME" id="OnX-0A-ygh"/>
+                        <outlet property="titleTextField" destination="Ale-P6-LhS" id="aJm-vk-jTc"/>
+                        <outlet property="volumePrecentageLabel" destination="ja3-cw-bbq" id="Ba8-Td-c6N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uGX-Tc-XTX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-466.41221374045801" y="728.87323943661977"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="Hrh-gC-CpG">
@@ -85,6 +190,18 @@
                                     <action selector="recordButtonPressed:" destination="XuD-3P-jKq" eventType="touchUpInside" id="KfB-vQ-mNI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9m-nG-SnG">
+                                <rect key="frame" x="35" y="83" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Back">
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressedBackButton:" destination="XuD-3P-jKq" eventType="touchUpInside" id="YET-05-sMF"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToMenu" modalPresentationStyle="fullScreen" id="8ZL-w7-dAD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7o3-tQ-Qc7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,6 +210,7 @@
                     <connections>
                         <outlet property="previewView" destination="t4M-ED-J2r" id="Dmu-sJ-32x"/>
                         <outlet property="recordButton" destination="Y9n-UU-ABf" id="SMk-WC-CO0"/>
+                        <outlet property="returnButton" destination="d9m-nG-SnG" id="jyk-ye-lew"/>
                         <outlet property="titleTextField" destination="WEz-qN-sUx" id="rD1-fa-XZ9"/>
                     </connections>
                 </viewController>
@@ -101,6 +219,9 @@
             <point key="canvasLocation" x="-66.412213740458014" y="-672.53521126760563"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fdx-GM-5cy"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
